@@ -1,0 +1,6 @@
+{
+    "mongo": {
+        "db": "hidemyconvo",
+        "uri": "mongodb://localhost:27017/"
+    }
+}
