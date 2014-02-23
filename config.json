@@ -1,4 +1,9 @@
 {
+    "app": {
+        "bindAdrress": "127.0.0.1",
+        "bindPort": 3000
+    },
+
     "mongo": {
         "db": "hidemyconvo",
         "uri": "mongodb://localhost:27017/"
