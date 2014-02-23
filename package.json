@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "description": "This project is aimed to improve conversation algorithm",
   "main": "index.js",
+  "engines": {
+    "node": ">= 0.10"
+  },
   "dependencies": {
     "express": "~3.4.8",
     "mongoose": "~3.8.6",
@@ -17,7 +20,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": "",
+  "repository": "git@github.com:hidemyconvo/hmc-core.git",
+  "keywords": [
+    "IM",
+    "secure",
+    "conversation",
+    "realtime"
+  ],
   "author": "HideMyConvo",
   "license": "BSD"
 }

@@ -2,5 +2,10 @@
     "mongo": {
         "db": "hidemyconvo",
         "uri": "mongodb://localhost:27017/"
+    },
+
+    "logger": {
+        "dir": "",
+        "level": "debug"
     }
 }
