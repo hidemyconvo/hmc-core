@@ -7,6 +7,10 @@ var options = {
     name: 'hmc-core'
 };
 
+// TODO: use colorized console output into development
+
+var logger = console; // by default
+
 var logDir = nconf.get('logger:dir');
 if (logDir) {
     var targetDir = logDir.charAt(0) == '/' ? logDir : path.join(__dirname, '..', logDir);
@@ -14,7 +18,7 @@ if (logDir) {
         try {
             fs.mkdirSync(targetDir);
         } catch (e) {
-            console.error('Error with configuration: can not create log directory -', e);
+            console.error('✗ Error with configuration: can not create log directory -', e);
             process.exit(1);
         }
     }
@@ -25,14 +29,13 @@ if (logDir) {
             period: '1d',
             count:  10
         }
-    ]
+    ];
+    logger = bunyan.createLogger(options);
+    logger.level(nconf.get('logger:level') || 'info');
+
+    process.on('SIGUSR2', function () {
+        logger.reopenFileStreams();
+    });
 }
-
-var logger = bunyan.createLogger(options);
-logger.level(nconf.get('logger:level') || 'info');
-
-process.on('SIGUSR2', function () {
-    logger.reopenFileStreams();
-});
 
 module.exports = logger;
