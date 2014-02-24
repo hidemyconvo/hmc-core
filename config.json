@@ -6,7 +6,8 @@
 
     "mongo": {
         "db": "hidemyconvo",
-        "uri": "mongodb://localhost:27017/"
+        "uri": "mongodb://localhost:27017/",
+        "poolSize": 5
     },
 
     "logger": {
