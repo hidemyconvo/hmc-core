@@ -20,4 +20,7 @@ Object.keys(theme).forEach(function (lvl) {
     logger[lvl] = makeLevel(lvl);
 });
 
+// patch console object
+console.debug = console.log;
+
 module.exports = logger;
