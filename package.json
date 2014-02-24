@@ -15,7 +15,8 @@
     "when": "~2.8.0",
     "gulp-util": "~2.2.14",
     "gulp": "~3.5.2",
-    "nconf": "~0.6.9"
+    "nconf": "~0.6.9",
+    "colors": "^0.6.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
