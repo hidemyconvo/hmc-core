@@ -8,15 +8,14 @@ var nconf   = require('nconf'),
 logger.info('Starting up application');
 
 // Configure express instance
-var app = express(),
-    env = process.env.NODE_ENV || 'development';
+var app = express();
 app.configure(function () {
     app.set('addr', nconf.get('app:bindAdrress') || '127.0.0.1');
     app.set('port', nconf.get('app:bindPort') || 3000);
     app.disable('x-powered-by');
     app.enable('trust proxy');
     app.use(express.favicon());
-    if (env == 'development') {
+    if (app.settings.env == 'development') {
         app.use(express.logger({
             format: 'dev',
             stream: {

@@ -21,7 +21,8 @@ function handleError(err) {
 }
 
 module.exports = function (app) {
-    app.get('/api/v1/users', getUsers)
-    app.post('/api/v1/users', createUser);
-    app.put('/api/v1/users/:id', updateUser);
+    var api = new (require('./utils/api'))(app);
+    api.get('users', getUsers)
+    api.post('users', createUser);
+    api.put('users/:id', updateUser);
 }
