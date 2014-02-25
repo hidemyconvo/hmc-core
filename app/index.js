@@ -1,10 +1,13 @@
 var nconf   = require('nconf'),
     logger  = require('./logger'),
     http    = require('http'),
-    express = require('express');
+    express = require('express'),
+    path    = require('path'),
+    fs      = require('fs');
 
 logger.info('Starting up application');
 
+// Configure express instance
 var app = express(),
     env = process.env.NODE_ENV || 'development';
 app.configure(function () {
@@ -12,6 +15,7 @@ app.configure(function () {
     app.set('port', nconf.get('app:bindPort') || 3000);
     app.disable('x-powered-by');
     app.enable('trust proxy');
+    app.use(express.favicon());
     if (env == 'development') {
         app.use(express.logger({
             format: 'dev',
@@ -34,7 +38,11 @@ app.configure(function () {
     app.use(app.router);
 });
 
-require('./routes')(app);
+// Bootstrap controllers
+var controllersPath = path.join(__dirname, 'controllers');
+fs.readdirSync(controllersPath).forEach(function (file) {
+    if (file.indexOf('.js') != -1) require(path.join(controllersPath, file))(app);
+});
 
 http.createServer(app).listen(app.get('port'), app.get('addr'), function () {
     logger.info('✔ Express server listening on ' + app.get('addr') + ':' + app.get('port'));
