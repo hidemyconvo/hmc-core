@@ -13,14 +13,19 @@
     "bunyan": "~0.22.1",
     "async": "~0.2.6",
     "when": "~2.8.0",
-    "gulp-util": "~2.2.14",
-    "gulp": "~3.5.2",
     "nconf": "~0.6.9",
     "colors": "^0.6.2",
     "rssi": "0.0.5"
   },
+  "devDependencies": {
+    "gulp": "~3.5.2",
+    "gulp-util": "~2.2.14",
+    "gulp-jasmine": "^0.2.0",
+    "gulp-jshint": "^1.5.0",
+    "jshint-stylish": "^0.1.5"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "repository": "git@github.com:hidemyconvo/hmc-core.git",
   "keywords": [

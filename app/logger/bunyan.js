@@ -15,7 +15,7 @@ var logDir = nconf.get('logger:dir');
 if (logDir.charAt(0) != '/') {
     logDir = path.join(process.cwd(), logDir);
 }
-if (fs.existsSync(logDir) == false) {
+if (fs.existsSync(logDir) === false) {
      try {
         fs.mkdirSync(logDir);
     } catch (e) {

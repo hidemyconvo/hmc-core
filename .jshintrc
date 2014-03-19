@@ -1,0 +1,12 @@
+{
+    "node": true,
+    "globals": {
+        "describe": false,
+        "it": false,
+        "expect": false,
+        "beforeEach": false,
+        "afterEach": false
+    },
+    "camelcase": true,
+    "asi": true
+}
